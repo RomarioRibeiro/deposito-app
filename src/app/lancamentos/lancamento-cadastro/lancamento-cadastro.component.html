@@ -1,0 +1,26 @@
+<div class="container">
+  <form>
+
+    <div class="grid">
+
+      <div class="col-12">
+        <h1>Novo Lançamento</h1>
+      </div>
+
+      <div class="col-12">
+        <p-selectButton [options]="tipos" name="tipo" #tipo></p-selectButton>
+      </div>
+
+      <div class="col-12 p-fluid">
+        <label >Vencimento</label>
+        <p-calendar dateFormat="dd/mm/yy" [inline]="false" [readonlyInput]="false" [showIcon]="false"></p-calendar>
+      </div>
+
+      <div class="col-12 p-fluid">
+        <label>{{tipo.value === 'FIADO' ?  'Fiado' : 'Avista' }}</label>
+        <p-calendar dateFormat="dd/mm/yy" [inline]="false" [readonlyInput]="false" [showIcon]="false"></p-calendar>
+      </div>
+
+    </div>
+    </form>
+</div>

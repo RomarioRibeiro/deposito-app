@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="grid">
+
+    <div class="col-12">
+      <h1>Lançamentos</h1>
+    </div>
+
+    <div class="col-12 p-fluid" >
+      <label>Descrição</label>
+      <input type="text" pInputText>
+    </div>
+
+    <div class="col-12">
+      <label style="display: block;">Vencimento</label>
+      <input type="text" pInputText>
+
+      <label > Até </label>
+      <input type="text" pInputText>
+    </div>
+
+    <div class="col-12">
+      <button pButton label="Pesquisar"></button>
+    </div>
+  </div>
+
+    <div class="grid">
+      <div class="col-12 p-fluid">
+        <p-table [value]="lancamentos" responsiveLayout="scroll">
+          <ng-template pTemplate="header">
+              <tr>
+                  <th>Categoria</th>
+                  <th>Pessoa</th>
+                  <th>Valor</th>
+                  <th>Data Fiado</th>
+                  <th>Data Pagamento</th>
+                  <th>Pago</th>
+                  <th></th>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-lancamentos>
+              <tr>
+                  <td>{{lancamentos.categoria}}</td>
+                  <td>{{lancamentos.pessoa}}</td>
+                  <td>{{lancamentos.valor}}</td>
+                  <td>{{lancamentos.dataFiado}}</td>
+                  <td>{{lancamentos.dataPagamento}}</td>
+                  <td>{{lancamentos.pago}}</td>
+                  <td class="col-acoes">
+                    <a pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top" ></a>
+                    <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top" ></button>
+                  </td>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="emptymessage">
+            <tr>
+              <td colspan="6">
+                Nenhum lançamento encontrado
+              </td>
+            </tr>
+          </ng-template>
+      </p-table>
+      </div>
+
+      <div class="col-12">
+        <a pButton label="Novo lançamento" routerLink="/lancamento/novo"></a>
+      </div>
+    </div>
+</div>
