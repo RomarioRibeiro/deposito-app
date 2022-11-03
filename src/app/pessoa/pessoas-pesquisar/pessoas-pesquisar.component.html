@@ -1,0 +1,94 @@
+<div class="container">
+  <div class="grid">
+    <div class="col-12">
+      <h1>Pessoa</h1>
+    </div>
+
+    <div class="col-12 p-fluid">
+      <label>Nome</label>
+      <input type="text" pInputText />
+    </div>
+
+    <div class="col-12">
+      <button pButton label="Pesquisar"></button>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="col-12">
+      <p-table [value]="pessoas" responsiveLayout="scroll">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Nome</th>
+            <th>Rua</th>
+            <th>Bairro</th>
+            <th>Número</th>
+            <th>Ativo</th>
+            <th class="col-valor-header"></th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-pessoas>
+          <tr>
+            <td>
+              <span class="p-column-title">Nome</span>
+
+              {{ pessoas.nome }}
+            </td>
+
+            <td>
+              <span class="p-column-title">Rua</span>
+              {{ pessoas.rua }}
+            </td>
+
+            <td>
+              <span class="p-column-title">Bairro</span>
+              {{ pessoas.bairro }}
+            </td>
+
+            <td>
+              <span class="p-column-title">Número</span>
+              {{ pessoas.numero }}
+            </td>
+
+            <td>
+              <span class="p-column-title">Status</span>
+              <a
+                href="javascript;"
+                [pTooltip]="pessoas.ativo ? 'Desativar' : 'Ativar'"
+                tooltipPosition="top"
+              >
+                {{ pessoas.ativo ? "Ativo" : "Inativo" }}</a
+              >
+            </td>
+
+            <td class="col-acoes">
+              <a
+                pButton
+                icon="pi pi-pencil"
+                pTooltip="Editar"
+                tooltipPosition="top"
+              ></a>
+              <button
+                pButton
+                icon="pi pi-trash"
+                pTooltip="Excluir"
+                tooltipPosition="top"
+              ></button>
+            </td>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+          <tr>
+            <td colspan="6">
+              Nenhum Pessoa encontrado
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+    <div class="col-12">
+      <button pButton label="Novo" pTooltip="Nova Pessoa" tooltipPosition="top" routerLink="/pessoas/novo"> </button>
+      <a href="" routerLink="home"> Volta para Pagina incial</a>
+    </div>
+  </div>
+</div>

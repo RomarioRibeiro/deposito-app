@@ -1,5 +1,5 @@
 <div class="container">
-  <form>
+  <form #form="ngForm">
 
     <div class="grid">
 
@@ -11,14 +11,45 @@
         <p-selectButton [options]="tipos" name="tipo" #tipo></p-selectButton>
       </div>
 
-      <div class="col-12 p-fluid">
+      <div class="col-3 col-3 p-fluid">
+        <label>{{tipo.value === 'FIADO' ?  'Fiado' : 'Avista' }}</label>
+        <p-calendar dateFormat="dd/mm/yy" [inline]="false" [readonlyInput]="false" [showIcon]="false"></p-calendar>
+      </div>
+
+      <div class="col-3 md:col-3 p-fluid">
         <label >Vencimento</label>
         <p-calendar dateFormat="dd/mm/yy" [inline]="false" [readonlyInput]="false" [showIcon]="false"></p-calendar>
       </div>
 
+      <div class="col-12 md:col-9 p-fluid">
+        <label>Descrição</label>
+        <input type="text" pInputText>
+      </div>
+
+      <div class="col-12 md:col-3 p-fluid">
+        <label>Valor</label>
+        <p-inputNumber mode="currency" currency="BRL" placeholder="0,00" ></p-inputNumber>
+      </div>
+
+      <div class="col-12 md:col-6 p-fluid">
+        <label>Categoria</label>
+        <p-dropdown [options]="categorias" placeholder="Selecione uma Categoria" ></p-dropdown>
+      </div>
+
+      <div class="col-12 md:col-6 p-fluid">
+        <label>Pessoa</label>
+        <p-dropdown [options]="pessoas" placeholder="Selecione uma Categoria" ></p-dropdown>
+      </div>
+
       <div class="col-12 p-fluid">
-        <label>{{tipo.value === 'FIADO' ?  'Fiado' : 'Avista' }}</label>
-        <p-calendar dateFormat="dd/mm/yy" [inline]="false" [readonlyInput]="false" [showIcon]="false"></p-calendar>
+        <textarea type="text" pInputTextarea  rows="5"></textarea>
+      </div>
+
+      <div class="col-12">
+        <button pButton type="submit" style="margin-right:5px ;" label="Salvar" class="p-button-info" [disabled]="!form.valid"></button>
+        <button pButton type="button" label="Novo" class="p-button-info" ></button>
+        <a routerLink="/lancamento">Volta para a  Pesquisa</a>
+
       </div>
 
     </div>
