@@ -20,6 +20,14 @@ import {CalendarModule} from 'primeng/calendar';
 import {InputNumberModule} from 'primeng/inputnumber';
 import {DropdownModule} from 'primeng/dropdown';
 import {InputTextareaModule} from 'primeng/inputtextarea';
+import { CommonModule, DatePipe } from '@angular/common';
+
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
+import {InputMaskModule} from 'primeng/inputmask';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ConfirmationService} from 'primeng/api';
+import {ToastModule} from 'primeng/toast';
 
 
 @NgModule({
@@ -28,7 +36,7 @@ declarations: [
   LancamentoPesquisarComponent,
   LancamentoCadastroComponent,
   PessoasPesquisarComponent,
-  PessoasCadastrarComponent
+  PessoasCadastrarComponent,
 ],
 imports: [
   ButtonModule,
@@ -42,7 +50,16 @@ imports: [
   FormsModule,
   InputNumberModule,
   DropdownModule,
-  InputTextareaModule
+  InputTextareaModule,
+  DatePipe,
+  MessageModule,
+  MessagesModule,
+  CommonModule,
+  InputMaskModule,
+  ConfirmDialogModule,
+  ToastModule
+
+
 
 ],
 exports: [
@@ -50,7 +67,8 @@ exports: [
   LancamentoPesquisarComponent,
   LancamentoCadastroComponent,
   PessoasPesquisarComponent,
-  PessoasCadastrarComponent
+  PessoasCadastrarComponent,
+
 ]
 
 })

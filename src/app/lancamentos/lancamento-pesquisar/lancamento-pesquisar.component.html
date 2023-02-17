@@ -1,31 +1,38 @@
 <div class="container">
-  <div class="grid">
+  <form (ngSubmit)="pesquisar()" autocomplete="off">
 
-    <div class="col-12">
-      <h1>Pagamento</h1>
+    <div class="grid">
+
+      <div class="col-12">
+        <h1>Pagamento</h1>
+      </div>
+
+      <div class="col-12 p-fluid" >
+        <label>Descrição</label>
+        <input type="text" pInputText name="descricao" [(ngModel)]="filtro.nome" >
+      </div>
+
+      <div class="col-12">
+        <label style="display: block;">Data do Pagamento</label>
+        <p-calendar dateFormat="dd/mm/yy" [inputStyle]="{ width: '100px' }" name="vencimentoInicio"
+         [(ngModel)]="filtro.dataVencimentoInicio" ></p-calendar>
+
+        <label > Até </label>
+        <p-calendar dateFormat="dd/mm/yy" [inputStyle]="{ width: '100px' }" name="vencimentoFim"
+         [(ngModel)]="filtro.dataVencimentoFim" ></p-calendar>
+      </div>
+
+      <div class="col-12">
+        <button pButton label="Pesquisar"></button>
+      </div>
     </div>
-
-    <div class="col-12 p-fluid" >
-      <label>Descrição</label>
-      <input type="text" pInputText>
-    </div>
-
-    <div class="col-12">
-      <label style="display: block;">Data do Pagamento</label>
-      <input type="text" pInputText>
-
-      <label > Até </label>
-      <input type="text" pInputText>
-    </div>
-
-    <div class="col-12">
-      <button pButton label="Pesquisar"></button>
-    </div>
-  </div>
+  </form>
 
     <div class="grid">
       <div class="col-12 p-fluid">
-        <p-table [value]="lancamentos" responsiveLayout="scroll">
+        <p-table [value]="lancamentos" responsiveLayout="scroll"
+        [paginator]="true" [rows]="filtro.intensPorPagina"
+      [lazy]="true" [totalRecords]="totalRegistro" (onLazyLoad)="aoMudarPagina($event)" [responsive]="true" #tabela>
           <ng-template pTemplate="header">
               <tr>
                   <th>Categoria</th>
@@ -39,15 +46,18 @@
           </ng-template>
           <ng-template pTemplate="body" let-lancamentos>
               <tr>
-                  <td>{{lancamentos.categoria}}</td>
+                  <td>{{lancamentos.produto}}</td>
                   <td>{{lancamentos.pessoa}}</td>
                   <td>{{lancamentos.valor}}</td>
-                  <td>{{lancamentos.dataFiado}}</td>
-                  <td>{{lancamentos.dataPagamento}}</td>
-                  <td>{{lancamentos.pago}}</td>
+                  <td>{{lancamentos.data_fiado | date: 'dd/MM/y'}}</td>
+                  <td>{{lancamentos.data_pagamento | date: 'dd/MM/y'}}</td>
+                  <td>
+                    <a href="javascript:;" [pTooltip]="lancamentos.pago ? 'Não Pago' : 'Pagar'" tooltipPosition="top" (click)="mudarStatus(lancamentos)">
+                      {{lancamentos.pago ? 'Pago' : 'Não Pago'}}</a>
+                  </td>
                   <td class="col-acoes">
-                    <a pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top" ></a>
-                    <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top" ></button>
+                    <a pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top" [routerLink]="['/lancamentos', lancamentos.codigo]" ></a>
+                    <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top" (click)="confimacaoExclusao(lancamentos)"></button>
                   </td>
               </tr>
           </ng-template>

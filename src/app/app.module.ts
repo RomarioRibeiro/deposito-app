@@ -6,6 +6,13 @@ import {  HttpClientModule, HttpHeaders } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { DatePipe } from '@angular/common';
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
+
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ConfirmationService, MessageService} from 'primeng/api';
+import {ToastModule} from 'primeng/toast';
 
 
 @NgModule({
@@ -19,8 +26,15 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     PrimengModule,
     HttpClientModule,
+    MessageModule,
+    MessagesModule,
+    ConfirmDialogModule,
+    ToastModule
+
   ],
-  providers: [],
+  providers: [  DatePipe,
+  ConfirmationService,
+MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

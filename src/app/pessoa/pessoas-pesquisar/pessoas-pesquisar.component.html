@@ -1,28 +1,33 @@
 <div class="container">
-  <div class="grid">
-    <div class="col-12">
-      <h1>Pessoa</h1>
+  <form (ngSubmit)="pesquisar()">
+
+    <div class="grid">
+      <div class="col-12">
+        <h1>Pessoa</h1>
     </div>
 
     <div class="col-12 p-fluid">
       <label>Nome</label>
-      <input type="text" pInputText />
+      <input type="text" pInputText name="nome" [(ngModel)]="filtro.nome" />
     </div>
 
     <div class="col-12">
-      <button pButton label="Pesquisar"></button>
+      <button pButton label="Pesquisar" ></button>
     </div>
   </div>
+</form>
 
   <div class="grid">
     <div class="col-12">
-      <p-table [value]="pessoas" responsiveLayout="scroll">
+      <p-table [value]="pessoas" responsiveLayout="scroll" [paginator]="true" [rows]="filtro.intensPagina" [lazy]="true" [totalRecords]="totalRegistro"
+      (onLazyLoad)="aoMudarPagina($event)" [responsive]="true" #tabela>
         <ng-template pTemplate="header">
           <tr>
             <th>Nome</th>
             <th>Rua</th>
             <th>Bairro</th>
             <th>Número</th>
+            <th>Telefone</th>
             <th>Ativo</th>
             <th class="col-valor-header"></th>
           </tr>
@@ -47,18 +52,18 @@
 
             <td>
               <span class="p-column-title">Número</span>
-              {{ pessoas.numero }}
+              {{ pessoas.numero | number}}
+            </td>
+
+            <td>
+              <span class="p-column-title">Telefone</span>
+              {{ pessoas.telefone}}
             </td>
 
             <td>
               <span class="p-column-title">Status</span>
-              <a
-                href="javascript;"
-                [pTooltip]="pessoas.ativo ? 'Desativar' : 'Ativar'"
-                tooltipPosition="top"
-              >
-                {{ pessoas.ativo ? "Ativo" : "Inativo" }}</a
-              >
+              <a href="javascript:;" [pTooltip]="pessoas.ativo ? 'Inativar' : 'Ativar'" tooltipPosition="top" (click)="mudarStatus(pessoas)">
+                {{pessoas.ativo ? 'Ativar' : 'Inativar'}}</a>
             </td>
 
             <td class="col-acoes">
@@ -67,12 +72,10 @@
                 icon="pi pi-pencil"
                 pTooltip="Editar"
                 tooltipPosition="top"
+                [routerLink]="['/pessoas', pessoas.codigo]"
               ></a>
-              <button
-                pButton
-                icon="pi pi-trash"
-                pTooltip="Excluir"
-                tooltipPosition="top"
+              <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top"
+                (click)="confirmacaoExclusao(pessoas)"
               ></button>
             </td>
           </tr>

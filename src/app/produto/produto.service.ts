@@ -4,9 +4,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class CategoriaService {
+export class ProdutoService {
 
-  categoriaURL = 'http://localhost:8080/categorias';
+  produtosURL = 'http://localhost:8090/produtos';
 
   constructor(private http: HttpClient) { }
 
@@ -14,6 +14,6 @@ export class CategoriaService {
   listarTodas(): Promise<any> {
     /* const headers = new HttpHeaders()
     .append(); */
-    return this.http.get(`${this.categoriaURL}`).toPromise();
+    return this.http.get(`${this.produtosURL}`).toPromise();
   }
 }

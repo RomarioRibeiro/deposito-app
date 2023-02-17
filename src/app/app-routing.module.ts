@@ -10,8 +10,10 @@ const routes: Routes = [
   {path: '', redirectTo:'lancameto', pathMatch: 'full' },
   {path: 'lancamento', component: LancamentoPesquisarComponent},
   {path: 'lancamento/novo', component: LancamentoCadastroComponent},
+  {path: 'lancamentos/:codigo', component: LancamentoCadastroComponent},
   {path: 'pessoas', component: PessoasPesquisarComponent},
   {path: 'pessoas/novo', component: PessoasCadastrarComponent},
+  {path: 'pessoas/:codigo', component: PessoasCadastrarComponent},
 ];
 
 @NgModule({
