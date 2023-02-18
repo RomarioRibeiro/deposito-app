@@ -16,7 +16,8 @@ export class LancamentoFiltro {
 })
 export class LancamentoService {
 
-  lancamentosURL = 'http://localhost:8090/lancamentos'
+  //lancamentosURL = 'http://localhost:8090/lancamentos'
+ lancamentosURL = ' https://deposito-api.herokuapp.com/lancamentos'
 
   constructor(
     private http: HttpClient,

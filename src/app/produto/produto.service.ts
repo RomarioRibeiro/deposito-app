@@ -6,7 +6,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class ProdutoService {
 
-  produtosURL = 'http://localhost:8090/produtos';
+  //produtosURL = 'http://localhost:8090/produtos';
+ produtosURL = ' https://deposito-api.herokuapp.com/produtos';
 
   constructor(private http: HttpClient) { }
 
