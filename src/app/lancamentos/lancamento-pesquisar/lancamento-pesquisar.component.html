@@ -35,22 +35,42 @@
       [lazy]="true" [totalRecords]="totalRegistro" (onLazyLoad)="aoMudarPagina($event)" [responsive]="true" #tabela>
           <ng-template pTemplate="header">
               <tr>
-                  <th>Categoria</th>
+                  <th class="p-column-title">Categoria</th>
                   <th>Pessoa</th>
-                  <th>Valor</th>
-                  <th>Data Fiado</th>
-                  <th>Data Pagamento</th>
-                  <th>Pago</th>
+                  <th class="col-data-hearde">Valor</th>
+                  <th class="col-data-hearde">Data Fiado</th>
+                  <th class="col-data-hearde">Data Pagamento</th>
+                  <th class="col-data-hearde">Pago</th>
                   <th></th>
               </tr>
           </ng-template>
           <ng-template pTemplate="body" let-lancamentos>
               <tr>
-                  <td>{{lancamentos.produto}}</td>
-                  <td>{{lancamentos.pessoa}}</td>
-                  <td>{{lancamentos.valor}}</td>
-                  <td>{{lancamentos.data_fiado | date: 'dd/MM/y'}}</td>
-                  <td>{{lancamentos.data_pagamento | date: 'dd/MM/y'}}</td>
+                  <td>
+                    <span class="p-column-title">Produto</span>
+                    {{lancamentos.produto}}
+                  </td>
+
+                  <td>
+                    <span class="p-column-title">Pessoa</span>
+                    {{lancamentos.pessoa}}
+                  </td>
+
+                  <td>
+                    <span class="p-column-title">Valor</span>
+                    {{lancamentos.valor}}
+                  </td>
+
+                  <td>
+                    <span class="p-column-title">Data Fiado</span>
+                    {{lancamentos.data_fiado | date: 'dd/MM/y'}}
+                  </td>
+
+                  <td>
+                    <span class="p-column-title">Data Pagamento</span>
+                    {{lancamentos.data_pagamento | date: 'dd/MM/y'}}
+                  </td>
+
                   <td>
                     <a href="javascript:;" [pTooltip]="lancamentos.pago ? 'Não Pago' : 'Pagar'" tooltipPosition="top" (click)="mudarStatus(lancamentos)">
                       {{lancamentos.pago ? 'Pago' : 'Não Pago'}}</a>
