@@ -30,7 +30,7 @@
 
     <div class="grid">
       <div class="col-12 p-fluid">
-        <p-table [value]="lancamentos" responsiveLayout="scroll"
+        <p-table [value]="lancamentos"
         [paginator]="true" [rows]="filtro.intensPorPagina"
       [lazy]="true" [totalRecords]="totalRegistro" (onLazyLoad)="aoMudarPagina($event)" [responsive]="true" #tabela>
           <ng-template pTemplate="header">

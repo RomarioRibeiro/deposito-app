@@ -19,7 +19,7 @@
 
   <div class="grid">
     <div class="col-12">
-      <p-table [value]="pessoas" responsiveLayout="scroll" [paginator]="true" [rows]="filtro.intensPagina" [lazy]="true" [totalRecords]="totalRegistro"
+      <p-table [value]="pessoas"  [paginator]="true" [rows]="filtro.intensPagina" [lazy]="true" [totalRecords]="totalRegistro"
       (onLazyLoad)="aoMudarPagina($event)" [responsive]="true" #tabela>
         <ng-template pTemplate="header">
           <tr>
