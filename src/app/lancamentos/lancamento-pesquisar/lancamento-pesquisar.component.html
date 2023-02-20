@@ -29,7 +29,7 @@
   </form>
 
     <div class="grid">
-      <div class="col-12 p-fluid">
+      <div class="col-12">
         <p-table [value]="lancamentos"
         [paginator]="true" [rows]="filtro.intensPorPagina"
       [lazy]="true" [totalRecords]="totalRegistro" (onLazyLoad)="aoMudarPagina($event)" [responsive]="true" #tabela>
@@ -37,10 +37,10 @@
               <tr>
                   <th class="p-column-title">Categoria</th>
                   <th>Pessoa</th>
-                  <th class="col-data-hearde">Valor</th>
-                  <th class="col-data-hearde">Data Fiado</th>
-                  <th class="col-data-hearde">Data Pagamento</th>
-                  <th class="col-data-hearde">Pago</th>
+                  <th class="col-valor-header">Valor</th>
+                  <th class="col-data-header">Data Fiado</th>
+                  <th class="col-data-header">Data Pagamento</th>
+                  <th class="col-valor-header">Pago</th>
                   <th></th>
               </tr>
           </ng-template>
