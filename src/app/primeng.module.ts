@@ -28,6 +28,7 @@ import {InputMaskModule} from 'primeng/inputmask';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmationService} from 'primeng/api';
 import {ToastModule} from 'primeng/toast';
+import {CardModule} from 'primeng/card';
 import { TabViewModule } from 'primeng/tabview';
 import { AccordionModule } from 'primeng/accordion'; // accordion and accordion tab
 
@@ -60,8 +61,7 @@ imports: [
   InputMaskModule,
   ConfirmDialogModule,
   ToastModule,
-  TabViewModule,
-  AccordionModule
+  CardModule
 
 
 

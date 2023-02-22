@@ -1,47 +1,50 @@
 <div class="container">
-  <form #form="ngForm" autocomplete="off" (ngSubmit)="salverPessoa(form)">
-    <div class="grid">
-      <div class="col-12">
-        <h1>Pessoa Nova</h1>
+  <p-card >
+
+    <form #form="ngForm" autocomplete="off" (ngSubmit)="salverPessoa(form)">
+      <div class="grid">
+        <div class="col-12">
+          <h1>Pessoa Nova</h1>
+        </div>
+
+        <div class="col-6 p-fluid">
+          <label>Nome</label>
+          <input type="text" pInputText ngModel name="nome" #nome="ngModel" required minlength="5" [(ngModel)]="pessoa.nome">
+          <p-message *ngIf="nome.hasError('required') && nome.touched" severity="error" text="Informe um nome"></p-message>
+        </div>
+
+        <div class="col-6 md:col-6 p-fluid">
+          <label>Telefone</label>
+          <p-inputMask  mask="(55)9999999-9999" ngModel name="telefone" #telefone="ngModel" [required]="true" [(ngModel)]="pessoa.telefone"></p-inputMask>
+        </div>
+
+
+        <div class="col-6 md:col-6 p-fluid">
+          <label>Rua</label>
+          <input type="text" pInputText ngModel name="rua" #rua="ngModel" required [(ngModel)]="pessoa.rua">
+        </div>
+
+        <div class="col-6 md:col-6 p-fluid">
+          <label>Número</label>
+          <p-inputNumber  placeholder="000" mode="decimal" ngModel name="numero" #numero="ngModel" [required]="true" [(ngModel)]="pessoa.numero"></p-inputNumber>
+        </div>
+
+
+
+        <div class="col-12 md:col-9 p-fluid">
+          <label>Bairro</label>
+          <input type="text" pInputText ngModel name="bairro" #bairro="ngModel" required [(ngModel)]="pessoa.bairro">
+        </div>
+
+        <div class="col-12">
+          <button class="col-button" pButton type="submit" label="Salvar" pTooltip="Salvar Pessoa" tooltipPosition="top" [disabled]="!form.valid"></button>
+          <button pButton type="button" label="Novo" pTooltip="Nova Pessoa" tooltipPosition="top" ></button>
+          <a routerLink="/pessoas">Voltar para a Pesquisa</a>
+
+        </div>
+
+
       </div>
-
-      <div class="col-6 p-fluid">
-        <label>Nome</label>
-        <input type="text" pInputText ngModel name="nome" #nome="ngModel" required minlength="5" [(ngModel)]="pessoa.nome">
-        <p-message *ngIf="nome.hasError('required') && nome.touched" severity="error" text="Informe um nome"></p-message>
-      </div>
-
-      <div class="col-6 md:col-6 p-fluid">
-        <label>Telefone</label>
-        <p-inputMask  mask="(55)9999999-9999" ngModel name="telefone" #telefone="ngModel" [required]="true" [(ngModel)]="pessoa.telefone"></p-inputMask>
-      </div>
-
-
-      <div class="col-6 md:col-6 p-fluid">
-        <label>Rua</label>
-        <input type="text" pInputText ngModel name="rua" #rua="ngModel" required [(ngModel)]="pessoa.rua">
-      </div>
-
-      <div class="col-6 md:col-6 p-fluid">
-        <label>Número</label>
-        <p-inputNumber  placeholder="000" mode="decimal" ngModel name="numero" #numero="ngModel" [required]="true" [(ngModel)]="pessoa.numero"></p-inputNumber>
-      </div>
-
-
-
-      <div class="col-12 md:col-9 p-fluid">
-        <label>Bairro</label>
-        <input type="text" pInputText ngModel name="bairro" #bairro="ngModel" required [(ngModel)]="pessoa.bairro">
-      </div>
-
-      <div class="col-12">
-        <button class="col-button" pButton type="submit" label="Salvar" pTooltip="Salvar Pessoa" tooltipPosition="top" [disabled]="!form.valid"></button>
-        <button pButton type="button" label="Novo" pTooltip="Nova Pessoa" tooltipPosition="top" ></button>
-        <a routerLink="/pessoas">Voltar para a Pesquisa</a>
-
-      </div>
-
-
-    </div>
-  </form>
-</div>
+    </form>
+  </p-card>
+  </div>

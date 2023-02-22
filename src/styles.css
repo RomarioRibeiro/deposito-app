@@ -1,42 +1,64 @@
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  color: #404c51;
-
-
-}
-
-a{
-  text-decoration: none;
-  color: #337ab7 ;
+  color: #404C51;
 }
 
 label {
   font-weight: bold;
 }
 
-
 @media (min-width: 1200px) {
-
-  .menu-Login{
-    width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
   .container {
-    width: 1170px;
-    margin: 0 auto;
+      width: 1170px;
+      margin: 0 auto;
   }
+}
+
+.label {
+  margin: 0.5em;
+}
+
+.col-valor-header {
+  width: 120px;
+  text-align: center !important;
+}
+
+.col-valor-content {
+  text-align: right !important ;
+}
+
+.col-data-header {
+  width: 120px;
+}
+
+.col-data-content {
+  text-align: center !important;
+}
+
+.col-acoes-header {
+width: 115px;
+}
+
+.col-acoes {
+  width: 115px;
+  text-align: center;
+}
+
+.col-acoes > a {
+  margin-right: 5px;
+}
+
+button.p-button {
+margin: 0 .25em;
 }
 
 @media (min-width: 40em) {
   .col-valor-header {
     width: 120px;
-    text-align: center !important;
   }
 
-  .col-valor-content {
+  .col-valor {
     text-align: right !important;
   }
 
@@ -44,19 +66,44 @@ label {
     width: 120px;
   }
 
-  .col-data-content {
+  .col-data {
     text-align: center !important;
+  }
+
+  .col-acoes-header {
+    width: 120px;
   }
 
   .col-acoes {
     width: 120px;
+    text-align: center !important;
   }
 
-  .col-acoes>a {
-    margin: 0 5px;
-  }
+}
+
+a {
+color: #337ab7;
+text-decoration: none;
+}
+
+a:hover, a:focus {
+text-decoration: underline;
+}
+
+a.p-button:hover,
+a.p-button:focus {
+text-decoration: none;
+}
 
 
+.p-card{
+  background: #ffffff;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #212529;
+
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 20px;
 }
 
 

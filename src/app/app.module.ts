@@ -17,6 +17,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { TabViewModule } from 'primeng/tabview';
 import { AccordionModule } from 'primeng/accordion'; // accordion and accordion tab
 import { MenuItem } from 'primeng/api';
+import {CardModule} from 'primeng/card';
 
 
 @NgModule({
@@ -34,8 +35,7 @@ import { MenuItem } from 'primeng/api';
     MessagesModule,
     ConfirmDialogModule,
     ToastModule,
-    TabViewModule,
-    AccordionModule,
+    CardModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable
