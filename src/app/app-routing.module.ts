@@ -5,6 +5,7 @@ import { LancamentoCadastroComponent } from './lancamentos/lancamento-cadastro/l
 import { LancamentoPesquisarComponent } from './lancamentos/lancamento-pesquisar/lancamento-pesquisar.component';
 import { PessoasCadastrarComponent } from './pessoa/pessoas-cadastrar/pessoas-cadastrar.component';
 import { PessoasPesquisarComponent } from './pessoa/pessoas-pesquisar/pessoas-pesquisar.component';
+import { SobreComponent } from './sobre/sobre.component';
 
 const routes: Routes = [
   {path: '', redirectTo:'lancameto', pathMatch: 'full' },
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'pessoas', component: PessoasPesquisarComponent},
   {path: 'pessoas/novo', component: PessoasCadastrarComponent},
   {path: 'pessoas/:codigo', component: PessoasCadastrarComponent},
+  {path: 'sobre', component: SobreComponent},
 ];
 
 @NgModule({

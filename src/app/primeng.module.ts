@@ -31,6 +31,7 @@ import {ToastModule} from 'primeng/toast';
 import {CardModule} from 'primeng/card';
 import { TabViewModule } from 'primeng/tabview';
 import { AccordionModule } from 'primeng/accordion'; // accordion and accordion tab
+import { SobreComponent } from './sobre/sobre.component';
 
 
 @NgModule({
@@ -40,6 +41,8 @@ declarations: [
   LancamentoCadastroComponent,
   PessoasPesquisarComponent,
   PessoasCadastrarComponent,
+
+  SobreComponent
 ],
 imports: [
   ButtonModule,
