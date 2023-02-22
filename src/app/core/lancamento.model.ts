@@ -1,7 +1,7 @@
 export class Lancamento {
   codigo?: number;
   descricao?: string;
-  data_fiado = new  Date();
+  data_fiado?: Date;
   data_pagamento?: Date;
   valor?: number;
   observacao?: string;
