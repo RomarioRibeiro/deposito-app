@@ -16,8 +16,8 @@ intensPagina = 5;
 })
 export class PessoaService {
 
-  pessoasURL = 'http://localhost:8090/pessoas';
-  //pessoasURL = ' https://deposito-api.herokuapp.com/pessoas';
+  //pessoasURL = 'http://localhost:8090/pessoas';
+  pessoasURL = ' https://deposito-api.herokuapp.com/pessoas';
 
 
   constructor(private http: HttpClient) { }
