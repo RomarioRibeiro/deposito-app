@@ -18,7 +18,7 @@ export class LancamentoPesquisarComponent implements OnInit {
 
 
   @ViewChild('tabela') grid!: Table;
-  lancamentos = []
+  lancamentos: any[] = []
 
 
   constructor(

@@ -28,6 +28,8 @@ import {InputMaskModule} from 'primeng/inputmask';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmationService} from 'primeng/api';
 import {ToastModule} from 'primeng/toast';
+import { TabViewModule } from 'primeng/tabview';
+import { AccordionModule } from 'primeng/accordion'; // accordion and accordion tab
 
 
 @NgModule({
@@ -57,7 +59,9 @@ imports: [
   CommonModule,
   InputMaskModule,
   ConfirmDialogModule,
-  ToastModule
+  ToastModule,
+  TabViewModule,
+  AccordionModule
 
 
 

@@ -32,15 +32,15 @@
       <div class="col-12">
         <p-table [value]="lancamentos"
         [paginator]="true" [rows]="filtro.intensPorPagina"
-      [lazy]="true" [totalRecords]="totalRegistro" (onLazyLoad)="aoMudarPagina($event)" [responsive]="true" #tabela>
+      [lazy]="true" [totalRecords]="totalRegistro" (onLazyLoad)="aoMudarPagina($event)"  #tabela>
           <ng-template pTemplate="header">
               <tr>
                   <th class="p-column-title">Categoria</th>
-                  <th>Pessoa</th>
+                  <th class="p-column-title">Pessoa</th>
                   <th class="col-valor-header">Valor</th>
                   <th class="col-data-header">Data Fiado</th>
                   <th class="col-data-header">Data Pagamento</th>
-                  <th class="col-valor-header">Pago</th>
+                  <th>Pago</th>
                   <th></th>
               </tr>
           </ng-template>
