@@ -16,6 +16,7 @@
         </div>
       </div>
     </form>
+  </p-card>
 
     <div class="grid">
       <div class="col-12">
@@ -68,12 +69,8 @@
 
               <td class="col-acoes">
                 <a
-                pButton
-                icon="pi pi-pencil"
-                pTooltip="Editar"
-                tooltipPosition="top"
-                [routerLink]="['/pessoas', pessoas.codigo]"
-                ></a>
+                pButton  icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"
+                  [routerLink]="['/pessoas', pessoas.codigo]"></a>
                 <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top"
                 (click)="confirmacaoExclusao(pessoas)"
                 ></button>
@@ -94,5 +91,4 @@
         <a href="" routerLink="home"> Volta para Pagina incial</a>
       </div>
     </div>
-  </p-card>
   </div>

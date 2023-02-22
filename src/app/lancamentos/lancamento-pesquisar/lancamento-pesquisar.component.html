@@ -24,10 +24,11 @@
       </div>
     </div>
   </form>
+</p-card>
 
   <div class="grid">
     <div class="col-12">
-        <p-table [value]="lancamentos"
+      <p-table [value]="lancamentos"
         [paginator]="true" [rows]="filtro.intensPorPagina"
         [lazy]="true" [totalRecords]="totalRegistro" (onLazyLoad)="aoMudarPagina($event)"  #tabela>
         <ng-template pTemplate="header">
@@ -92,5 +93,4 @@
         <a pButton label="Novo lançamento" routerLink="/lancamento/novo"></a>
       </div>
     </div>
-  </p-card>
   </div>
